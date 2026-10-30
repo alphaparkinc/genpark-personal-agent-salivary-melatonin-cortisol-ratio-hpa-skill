@@ -1,0 +1,61 @@
+{
+  "name": "genpark-personal-agent-salivary-melatonin-cortisol-ratio-hpa-skill",
+  "version": "1.0.0",
+  "title": "Salivary Melatonin-to-Cortisol Ratio & HPA Axis Phase Sentinel Skill",
+  "description": "Salivary Dim Light Melatonin-to-Cortisol Ratio (MCR), hypothalamic-pituitary-adrenal (HPA) circadian misalignment index, and adrenal fatigue staging. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "melatonin-cortisol-ratio",
+    "hpa-axis",
+    "adrenal-fatigue",
+    "circadian-misalignment",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_melatonin_cortisol_ratio",
+      "description": "Compute evening Melatonin-to-Cortisol Ratio (MCR) to evaluate biological readiness for deep slow-wave sleep.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "evening_melatonin_pg_ml": {
+            "type": "number"
+          },
+          "evening_cortisol_nmol_l": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "evening_melatonin_pg_ml",
+          "evening_cortisol_nmol_l"
+        ]
+      }
+    },
+    {
+      "name": "assess_hpa_circadian_exhaustion_stage",
+      "description": "Classify HPA axis dysregulation into 4 functional clinical stages (Alarm, Resistance, Exhaustion, Collapse).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "car_morning_cortisol_nmol_l": {
+            "type": "number"
+          },
+          "noon_cortisol_nmol_l": {
+            "type": "number"
+          },
+          "bedtime_cortisol_nmol_l": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "car_morning_cortisol_nmol_l",
+          "bedtime_cortisol_nmol_l"
+        ]
+      }
+    }
+  ]
+}
